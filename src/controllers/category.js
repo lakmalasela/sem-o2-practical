@@ -1,6 +1,8 @@
 const express = require('express');
 const Category = require('../model/category');
 const router = express.Router();
+const checkAuth = require('../middleware/checkAuth');
+
 
 
 router.post('/', async(req, res) => {
@@ -34,7 +36,7 @@ router.post('/', async(req, res) => {
 
 
  //get method
- router.get("/", async(req, res) => {
+ router.get("/", checkAuth,async(req, res) => {
 
     try {
 
